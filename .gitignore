@@ -328,4 +328,4 @@ TSWLatexianTemp*
 ################################################################
 
 # Exclude Zotero connection script with sensible user data
-#ub.sh
+ub.sh
