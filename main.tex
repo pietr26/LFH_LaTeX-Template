@@ -1,0 +1,116 @@
+\documentclass[11pt]{article} % auch Schriftgröße des Dokuments
+
+%%% Packages %%%
+\usepackage[ngerman]{babel} % Anpassungen für Deutsch
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc} % Ausgabekodierung
+\usepackage{graphicx} % Bilder
+\usepackage{stackengine} % angenehme Unterschriftenlinien
+\usepackage{csquotes} % automatische deutsche Anführungszeichen im Quellenverzeichnis
+\usepackage[textsize=tiny]{todonotes} % in-Document-Kommentare
+
+\usepackage{setspace} % Zeilenabstände definieren
+\setstretch{1.5}
+\setlength{\footnotesep}{\baselineskip}
+
+\usepackage[  % Hyperlinks (auch Inhaltsverzeichnis)
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+]{hyperref}
+
+\usepackage[ % Quellenverzeichnis
+    backend=biber,
+    style=apa,
+    sorting=nyt
+]{biblatex}
+
+\usepackage[ % Seitenkonfiguration
+    a4paper,
+    top=2.5cm,
+    bottom=2cm,
+    left=4cm,
+    right=2cm
+]{geometry}
+
+\usepackage{xpatch}
+
+% Wir patchen den "book"-Treiber, damit er das Feld "pages" ausgibt
+\xpatchbibdriver{book}
+  {\usebibmacro{publisher+location+date}} % Suche diese Stelle
+  {\usebibmacro{publisher+location+date}%
+   \newunit\newblock
+   \printfield{pages}} % Füge danach die Seitenzahlen ein
+  {}
+  {}
+
+%%% Metadaten %%%
+\title{
+    <<Art der Arbeit>>\par
+    zur Vorlesung <<Fach>> im <<Semester>>\par
+    an der Leibniz-Fachhochschule Hannover\par\bigskip
+
+    \textbf{<<Titel der Arbeit>>}
+}
+\author{
+  <<Name des Autors>> \small(M.-Nr. <<Martikelnummer>>)\\
+  Studiengang: <<Studiengangsname>> (<<Abschlussname (B.Sc., ...)>>)\\[1em]
+  <<Geprüft/Betreut/...>> von: <<Betreuungsperson>>\\
+  << - ODER für Abschlussarbeiten - >>\\
+  Erstgutachter<<in>>: <<ErstgutachterIn>>\\
+  Zweitgutachter<<in>>: <<ZweitgutachterIn>>
+}
+\addbibresource{sources.bib}
+
+%%% Dokumenteneinstellungen %%%
+\setlength{\parindent}{0px} % Verhindert Einrückungen nach erstem Absatz im Kapitel
+\renewcommand\familydefault{\sfdefault}  % Sans-Serif
+\reversemarginpar % Kommentare auf der linken Seite
+\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont} % Schriftgröße Fußnoten (und Zeilenabstand dieser)
+
+\newcommand{\sigline}[2]{ % Marko für angenehme Unterschriftenlinien
+  \begin{minipage}{#1}
+    \centering
+    \rule{\textwidth}{0.4pt}\\
+    \small #2
+  \end{minipage}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagenumbering{roman}
+
+\maketitle
+
+<<weitere Anmerkungen (Aufgabenstellungen etc.)>>
+
+\newpage
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\input{chapters/kapitel}
+
+\newpage
+%%% Abschluss des Dokuments %%%
+
+\printbibheading[title={Literaturverzeichnis}]
+\printbibliography[heading=subbibliography, title={Öffentliche Quellen}, notkeyword=intern]
+\printbibliography[heading=subbibliography, title={Unternehmensinterne Quellen}, keyword=intern]
+
+\listoffigures
+\listoftables
+
+\section*{Ehrenwörtliche Erklärung} % Text direkt aus der Vorgabe
+Hiermit versichere ich, dass die vorliegende Arbeit von mir selbstständig und ohne unerlaubte Hilfe angefertigt worden ist, insbesondere, dass alle Stellen, die wörtlich oder sinngemäß aus Veröffentlichungen entnommen sind, durch Zitate als solche kenntlich gemacht wurden. Diese Versicherung bezieht sich auch auf die in der Arbeit verwendete bildliche Darstellungen, Tabellen, Zeichnungen, Skizzen, graphischen Darstellungen und dergleichen sowie auch für die Verwendung von text- oder codegenerierenden KI-Werkzeugen als Quelle.\par
+Die Arbeit hat in gleicher oder ähnlicher Form noch keiner Prüfungsbehörde vorgelegen und ist nicht veröffentlicht. Sie wurde nicht, auch nicht auszugsweise, für eine andere Prüfungs- oder Studienleistung verwendet.\par
+Ich bin damit einverstanden, dass die Arbeit einer elektronischen Plagiatsprüfung unterzogen werden kann. Die Regelungen der Prüfungsordnung zur Täuschung habe ich zur Kenntnis genommen.\par
+
+\vspace{1cm}
+\sigline{5cm}{Ort, Datum} \hfill \sigline{5cm}{Unterschrift}
+
+\end{document}
