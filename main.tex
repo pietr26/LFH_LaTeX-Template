@@ -35,17 +35,6 @@
     right=2cm
 ]{geometry}
 
-\usepackage{xpatch}
-
-% Wir patchen den "book"-Treiber, damit er das Feld "pages" ausgibt
-\xpatchbibdriver{book}
-  {\usebibmacro{publisher+location+date}} % Suche diese Stelle
-  {\usebibmacro{publisher+location+date}%
-   \newunit\newblock
-   \printfield{pages}} % Füge danach die Seitenzahlen ein
-  {}
-  {}
-
 %%% Metadaten %%%
 \title{
     <<Art der Arbeit>>\par
