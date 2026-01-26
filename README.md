@@ -23,7 +23,7 @@ chmod +x ub.sh
 ```sh
 ./ub.sh
 ```
-4. bei eventueller Veröffentlichung sollte der verwendete API-Key von Zotero natürlich wieder revoked werden.
+5. bei eventueller Veröffentlichung sollte der verwendete API-Key von Zotero natürlich wieder revoked werden.
 
 ## Anmerkungen zum Schreiben des Dokuments
 - **Interne Unternehmensquellen:** Interne Unternehmensquellen können auch in Zotero eingetragen werden und müssen anschließend mit dem Tag `intern` markiert werden. Diese Quellen werden im Quellenverzeichnis gemäß Vorgabe automatisch gesondert gruppiert.
