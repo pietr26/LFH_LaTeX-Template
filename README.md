@@ -4,7 +4,7 @@ Dieses Repository enthält Templates für das Schreiben von LaTeX-Dokumenten. Di
 ## Setup eines LaTeX-Codespaces mit GitHub und Zotero
 1. Codespace im entsprechenden Repository öffnen
 2. Anmelden bzw. Extension "LaTeX Workshop" (`james-yu.latex-workshop`) installieren
-3. Installation von TeXLive:
+3. Installation von TeXLive und LaTeXmk:
 ```sh
 sudo apt update
 sudo apt install -y texlive-full latexmk
